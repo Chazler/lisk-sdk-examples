@@ -21,14 +21,14 @@ const getTimestamp = () => {
     return parseInt(inSeconds);
 };
 
-const amount = "10";
+const amount = "101";
 
 const tx = new PaymentTransaction({
     asset: {
         amount: amount,
         recipientId: "7082395287368165918L",
         networkIdentifier: networkIdentifier,
-        data: "Davy is gay",
+        data: "TEST123",
     },
     networkIdentifier: networkIdentifier,
   timestamp: getTimestamp(),
