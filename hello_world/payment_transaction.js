@@ -10,7 +10,8 @@ class PaymentTransaction extends TransferTransaction {
 	};
 
 	static get FEE () {
-		return `${10 ** 2}`;
+		return `${0}`;
+		// return `${10 ** 2}`;
 	};
 
 	async prepare(store) {
