@@ -27,6 +27,7 @@ const tx = new PaymentTransaction({
     asset: {
         amount: amount,
         recipientId: "7082395287368165918L",
+        networkIdentifier: networkIdentifier,
         data: "Davy is gay",
     },
     networkIdentifier: networkIdentifier,
