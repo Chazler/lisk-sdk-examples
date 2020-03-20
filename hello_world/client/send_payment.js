@@ -26,7 +26,7 @@ const amount = "10";
 const tx = new PaymentTransaction({
     amount: amount,
     recipientId: "7082395287368165918L",
-    data: "Davy is gay",
+    networkIdentifier: networkIdentifier,
   timestamp: getTimestamp(),
 });
 
