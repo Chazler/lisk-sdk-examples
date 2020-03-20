@@ -1,6 +1,37 @@
-import * as transactions from '@liskhq/lisk-transactions';
+const PaymentTransaction = require('../payment_transaction');
+const { EPOCH_TIME } = require('@liskhq/lisk-constants');
+const {getNetworkIdentifier} = require('@liskhq/lisk-cryptography');
+const networkIdentifier = getNetworkIdentifier(
+    "23ce0366ef0a14a91e5fd4b1591fc880ffbef9d988ff8bebf8f3666b0c09597d",
+    "Lisk",
+);
+const transactions = require('@liskhq/lisk-transactions');
 
-transactions.transfer({
-    amount: '123000000',
-    recipientId: '12668885769632475474L',
+
+/**
+ *  To directly send the printed transaction:
+ *  > node print_sendable_hello-world.js | curl -X POST -H "Content-Type: application/json" -d @- localhost:4000/api/transactions
+ *  Note: An node needs to run on port 4000 (the default one) before. If the node runs on a different port, adjust the query accordingly.
+ */
+
+const getTimestamp = () => {
+    // check config file or curl localhost:4000/api/node/constants to verify your epoc time
+    const millisSinceEpoch = Date.now() - Date.parse(EPOCH_TIME);
+    const inSeconds = ((millisSinceEpoch) / 1000).toFixed(0);
+    return parseInt(inSeconds);
+};
+
+const amount = "10";
+
+const tx = new PaymentTransaction({
+    amount: amount,
+    recipientId: "7082395287368165918L",
+    networkIdentifier: networkIdentifier,
+    data: "Davy is gay",
+  timestamp: getTimestamp(),
 });
+
+tx.sign('creek own stem final gate scrub live shallow stage host concert they');
+
+console.log(tx.stringify());
+process.exit(0);
