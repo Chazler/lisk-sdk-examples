@@ -30,14 +30,16 @@ class PaymentTransaction extends TransferTransaction {
 				data: 'testdata123testtest'
 			} };
 		store.account.set(sender.address, newObj);
-		console.log(this.asset);
+		console.log(newObj);
 		return errors;
 	}
 
 	undoAsset(store) {
-		const errors = super.undoAsset(store);
-
-		return errors;
+		// const errors = super.undoAsset(store);
+		const sender = store.account.get(this.senderId);
+		const oldObj = { ...sender, asset: null };
+		store.account.set(sender.address, oldObj);
+		return [];
 	}
 }
 
