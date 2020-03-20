@@ -21,11 +21,11 @@ const getTimestamp = () => {
     return parseInt(inSeconds);
 };
 
-const amount = "101";
+// const amount = "101";
 
 const tx = new PaymentTransaction({
     asset: {
-        amount: amount,
+        amount: "102",
         recipientId: "7082395287368165918L",
         networkIdentifier: networkIdentifier,
         data: "TEST123",
