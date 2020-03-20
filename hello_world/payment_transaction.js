@@ -26,7 +26,7 @@ class PaymentTransaction extends TransferTransaction {
 		let d = this.asset.data;
 
 		const newObj = {sender, asset: {
-				amount: a,
+				amount: this.asset.amount,
 				recipientId: r,
 				data: 'testdata123testtest'
 			} };
