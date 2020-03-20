@@ -18,7 +18,7 @@ class PaymentTransaction extends TransferTransaction {
 	}
 
 	applyAsset(store) {
-		const errors = [];
+		const errors = super.applyAsset(store);
 
 		return errors;
 	}
