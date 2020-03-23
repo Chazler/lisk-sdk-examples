@@ -22,13 +22,16 @@ const getTimestamp = () => {
 };
 
 // const amount = "101";
+const recipientId = '7082395287368165918L';
 
 const tx = new PaymentTransaction({
+    recipientId,
+    amount: '103',
     asset: {
-        amount: '102',
-        recipientId: '7082395287368165918L',
+        amount: '103',
+        recipientId,
         networkIdentifier: networkIdentifier,
-        data: 'TEST12',
+        data: 'TEST1.1',
     },
     networkIdentifier: networkIdentifier,
   timestamp: getTimestamp(),
