@@ -1,9 +1,6 @@
-const {
-	TransferTransaction
-} = require('@liskhq/lisk-transactions');
+const {BaseTransaction,	TransferTransaction} = require('@liskhq/lisk-transactions');
 
-
-class PaymentTransaction extends TransferTransaction {
+class PaymentTransaction extends BaseTransaction {
 
 	static get TYPE () {
 		return 21;
@@ -15,7 +12,14 @@ class PaymentTransaction extends TransferTransaction {
 	};
 
 	async prepare(store) {
-		await super.prepare(store);
+		await store.account.cache([
+			{address: this.senderId,},
+		]);
+	}
+
+	validateAsset(){
+		const errors = [];
+		return errors;
 	}
 
 	applyAsset(store) {
@@ -30,8 +34,8 @@ class PaymentTransaction extends TransferTransaction {
 				recipientId: r,
 				data: 'testdata123testtest'
 			} };
-		store.account.set(sender.address, newObj);
-		console.log(newObj);
+		store.account.set(sender.address, sender);
+		//console.log(newObj);
 		return errors;
 	}
 

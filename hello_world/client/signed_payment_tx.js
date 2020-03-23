@@ -25,10 +25,10 @@ const getTimestamp = () => {
 
 const tx = new PaymentTransaction({
     asset: {
-        amount: "102",
-        recipientId: "7082395287368165918L",
+        amount: '102',
+        recipientId: '7082395287368165918L',
         networkIdentifier: networkIdentifier,
-        data: "TEST123",
+        data: 'TEST12',
     },
     networkIdentifier: networkIdentifier,
   timestamp: getTimestamp(),
